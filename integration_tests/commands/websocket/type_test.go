@@ -55,6 +55,7 @@ func TestType(t *testing.T) {
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			conn := exec.ConnectToServer()
+			exec.FireCommandAndReadResponse(conn, "FLUSHDB")
 			for i, cmd := range tc.commands {
 				result, err := exec.FireCommandAndReadResponse(conn, cmd)
 				assert.Nil(t, err)
