@@ -35,7 +35,7 @@ func TestDel(t *testing.T) {
 				{Command: "GET", Body: map[string]interface{}{"key": "k1"}},
 				{Command: "GET", Body: map[string]interface{}{"key": "k2"}},
 			},
-			expected: []interface{}{"OK", "OK", float64(1), float64(1), "(nil)", "(nil)"},
+			expected: []interface{}{"OK", "OK", float64(2), "(nil)", "(nil)"},
 		},
 		{
 			name: "DEL with key not set",
