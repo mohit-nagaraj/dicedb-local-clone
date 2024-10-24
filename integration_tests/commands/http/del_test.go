@@ -21,7 +21,7 @@ func TestDel(t *testing.T) {
 				{Command: "DEL", Body: map[string]interface{}{"key": "k1"}},
 				{Command: "GET", Body: map[string]interface{}{"key": "k1"}},
 			},
-			expected: []interface{}{"OK", float64(1), "(nil)"},
+			expected: []interface{}{"OK", float64(1), nil},
 		},
 		{
 			name: "DEL with multiple keys",
@@ -32,7 +32,7 @@ func TestDel(t *testing.T) {
 				{Command: "GET", Body: map[string]interface{}{"key": "k1"}},
 				{Command: "GET", Body: map[string]interface{}{"key": "k2"}},
 			},
-			expected: []interface{}{"OK", "OK", float64(2), "(nil)", "(nil)"},
+			expected: []interface{}{"OK", "OK", float64(2), nil, nil},
 		},
 		{
 			name: "DEL with key not set",
@@ -40,7 +40,7 @@ func TestDel(t *testing.T) {
 				{Command: "GET", Body: map[string]interface{}{"key": "k3"}},
 				{Command: "DEL", Body: map[string]interface{}{"key": "k3"}},
 			},
-			expected: []interface{}{"(nil)", float64(0)},
+			expected: []interface{}{nil, float64(0)},
 		},
 		{
 			name: "DEL with no keys or arguments",
