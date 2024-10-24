@@ -41,7 +41,6 @@ func TestDel(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			for i, cmd := range tc.commands {
 				result := FireCommand(conn, cmd)
-				t.Logf("Command: %s, Result: %v, Expected: %v", cmd, result, tc.expected[i])
 				assert.Equal(t, tc.expected[i], result, "Value mismatch for cmd %s", cmd)
 			}
 		})
