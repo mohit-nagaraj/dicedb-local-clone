@@ -5,6 +5,7 @@ DiceDB
 <a href="https://discord.gg/6r8uXWtXh7">![Discord](https://img.shields.io/discord/1232385660460204122?style=flat-square)</a>
 <a href="https://dicedb.io/get-started/installation/">![Docs](https://img.shields.io/badge/docs-00A1FF?style=flat-square)</a>
 
+
 DiceDB is an in-memory, real-time, and reactive database with Redis and SQL support optimized for modern hardware and building real-time applications.
 
 We are looking for Early Design Partners, so, if you want to evaluate DiceDB, [block our calendar](https://cal.com/dicedb-arpit). always up for a chat.
