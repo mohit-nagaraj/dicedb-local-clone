@@ -45,7 +45,7 @@ func TestDel(t *testing.T) {
 		{
 			name: "DEL with no keys or arguments",
 			commands: []HTTPCommand{
-				{Command: "DEL", Body: map[string]interface{}{"key": []string{}}},
+				{Command: "DEL", Body: map[string]interface{}{"key": nil}},
 			},
 			expected: []interface{}{"ERR wrong number of arguments for 'del' command"},
 		},
