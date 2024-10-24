@@ -32,13 +32,13 @@ func TestExists(t *testing.T) {
 			name:     "Test EXISTS an expired key",
 			commands: []string{"SET key value ex 1", "EXISTS key", "EXISTS key"},
 			expected: []interface{}{"OK", float64(1), float64(0)},
-			delay:    []time.Duration{0, 0, 0, 0, 2 * time.Second},
+			delay:    []time.Duration{2 * time.Second, 2 * time.Second, 2 * time.Second},
 		},
 		{
 			name:     "Test EXISTS with multiple keys and expired key",
 			commands: []string{"SET key value ex 2", "SET key2 value2", "SET key3 value3", "EXISTS key key2 key3", "EXISTS key key2 key3"},
 			expected: []interface{}{"OK", "OK", "OK", float64(3), float64(2)},
-			delay:    []time.Duration{0, 0, 0, 0, 2 * time.Second},
+			delay:    []time.Duration{0, 0, 2 * time.Second, 2 * time.Second, 2 * time.Second},
 		},
 	}
 	for _, tc := range testCases {
