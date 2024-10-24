@@ -2,7 +2,6 @@ package http
 
 import (
 	"testing"
-	"time"
 
 	"gotest.tools/v3/assert"
 )
@@ -14,7 +13,6 @@ func TestDel(t *testing.T) {
 		name     string
 		commands []HTTPCommand
 		expected []interface{}
-		delays   []time.Duration
 	}{
 		{
 			name: "DEL with set key",
@@ -24,7 +22,6 @@ func TestDel(t *testing.T) {
 				{Command: "GET", Body: map[string]interface{}{"key": "k1"}},
 			},
 			expected: []interface{}{"OK", float64(1), "(nil)"},
-			delays:   []time.Duration{0, 0},
 		},
 		{
 			name: "DEL with multiple keys",
@@ -57,9 +54,6 @@ func TestDel(t *testing.T) {
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			for i, cmd := range tc.commands {
-				if tc.delays[i] > 0 {
-					time.Sleep(tc.delays[i])
-				}
 				result, err := exec.FireCommand(cmd)
 				if err != nil {
 					// Check if the error message matches the expected result
