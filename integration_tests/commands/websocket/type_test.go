@@ -47,7 +47,7 @@ func TestType(t *testing.T) {
 		},
 		{
 			name:     "TYPE for key with value created from SETOP command",
-			commands: []string{"SET key1 \"foobar\"", "SET key2 \"abcdef\"", "BITOP AND dest key1 key2", "TYPE dest"},
+			commands: []string{"SET key1 foobar", "SET key2 abcdef", "BITOP AND dest key1 key2", "TYPE dest"},
 			expected: []interface{}{"OK", "OK", float64(6), "string"},
 		},
 	}
