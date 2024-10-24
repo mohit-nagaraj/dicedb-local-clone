@@ -57,7 +57,7 @@ func TestType(t *testing.T) {
 			conn := exec.ConnectToServer()
 			for i, cmd := range tc.commands {
 				result := exec.FireCommand(conn, cmd)
-				assert.DeepEqual(t, tc.expected[i], result)
+				assert.Equal(t, tc.expected[i], result, "Value mismatch for cmd %s", cmd)
 			}
 		})
 	}
