@@ -26,7 +26,7 @@ func TestExists(t *testing.T) {
 			name:     "Test EXISTS command with multiple keys",
 			commands: []string{"SET key value", "SET key2 value2", "EXISTS key key2 key3", "EXISTS key key2 key3 key4", "DEL key", "EXISTS key key2 key3 key4"},
 			expected: []interface{}{"OK", "OK", float64(2), float64(2), float64(1), float64(1)},
-			delay:    []time.Duration{0, 0, 0},
+			delay:    []time.Duration{0, 0, 0, 0, 0, 0},
 		},
 		{
 			name:     "Test EXISTS an expired key",
